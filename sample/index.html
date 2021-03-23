@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sample</title>
+    </head>
+    <body>
+        <div id='btn'>
+        </div>
+    </body>
+    <script src="../button.js"></script>
+    <script>
+        const btn = document.getElementById('btn');
+        const data = {
+            text: 'SampleButton',
+            handler: () => {
+                alert('It works!');
+            }
+        }
+        button(btn, data);
+    </script>
+</html>
