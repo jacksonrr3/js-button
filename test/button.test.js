@@ -1,4 +1,4 @@
-const button = require('../button.js').button;
+const button = require('../src/button.js').button;
 
 test('node change text test', () => {
     const testNode = document.createElement('div');
