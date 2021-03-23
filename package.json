@@ -1,8 +1,8 @@
 {
   "name": "lessons",
   "version": "1.0.0",
-  "description": "",
-  "main": "function.js",
+  "description": "lesson project",
+  "private": true,
   "directories": {
     "test": "test"
   },
@@ -12,6 +12,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^26.6.3"
-  }
+    "jest": "^26.6.3",
+    "webpack": "^5.27.2",
+    "webpack-cli": "^4.5.0"
+  },
+  "files": [
+    "src"
+  ]
 }
