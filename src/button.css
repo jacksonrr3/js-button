@@ -1,6 +1,6 @@
 .button {
     background-color: lightgray;
     border: 1px solid darkblue;
-    display:inline;
+    display: inline-block;
     cursor: pointer;
 }
