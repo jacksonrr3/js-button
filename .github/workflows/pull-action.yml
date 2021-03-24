@@ -1,5 +1,5 @@
 name: pullrequest-github-actions
-on: [pull_request]
+on: [push, pull_request]
 jobs:
   run-tests:
     runs-on: ubuntu-latest
