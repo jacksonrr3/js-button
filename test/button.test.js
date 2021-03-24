@@ -3,14 +3,14 @@ const button = require('../src/button.js').button;
 test('node change text test', () => {
     const testNode = document.createElement('div');
     const text = 'test_text';
-    button(testNode, {text: text, handler: () => {}});
+    button(testNode, {text: text});
     expect(testNode.innerText).toBe(text);
 });
 
 test('it should add class button', () => {
     const testNode = document.createElement('div');
     const className = 'button';
-    button(testNode, {text: '', handler: () => {}});
+    button(testNode, {text: ''});
     expect(testNode.className).toBe(className);
 });
 
@@ -20,7 +20,7 @@ test('it should add eventHandler', () => {
     const clickHandler = function() {
         res = true;
     };
-    button(testNode, {text: '', handler: clickHandler});
+    button(testNode, {text: '', onClick: clickHandler});
     testNode.dispatchEvent(new Event('click'));
     expect(res).toBe(true);
 });

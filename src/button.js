@@ -1,7 +1,7 @@
-function button(node, value){  
-    node.innerText = value.text;
+function button(node, options){  
+    node.innerText = options.text;
     node.className = 'button';
-    node.addEventListener('click', value.handler);
+    node.addEventListener('click', options.onClick);
 }
 
 exports.button = button;
