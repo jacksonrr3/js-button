@@ -29,8 +29,8 @@ button(node, {
 
 ## Roadmap
 - runtime option changing
-- floating button (add option "items actions")
 - rename main.js (config webpack)
 - add CI task (github actions task)
+- floating button (add option "items actions")
 - provide CSS
 - migrate ES6 modules

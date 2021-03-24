@@ -1,26 +1,26 @@
-const button = require('../src/button.js').button;
+const Button = require('../src/button.js').Button;     
 
-test('node change text test', () => {
+test('Сhange node text test', () => {
     const testNode = document.createElement('div');
     const text = 'test_text';
-    button(testNode, {text: text});
+    const testObj = new Button(testNode, {text: text});
     expect(testNode.innerText).toBe(text);
 });
 
-test('it should add class button', () => {
+test('Add class button test', () => {
     const testNode = document.createElement('div');
     const className = 'button';
-    button(testNode, {text: ''});
+    const testObj = new Button(testNode, {text: ''});
     expect(testNode.className).toBe(className);
 });
 
-test('it should add eventHandler', () => {
+test('Add eventHandler test', () => {
     const testNode = document.createElement('div');
     let res;
     const clickHandler = function() {
         res = true;
     };
-    button(testNode, {text: '', onClick: clickHandler});
+    const testObj = new Button(testNode, {text: '', onClick: clickHandler});
     testNode.dispatchEvent(new Event('click'));
     expect(res).toBe(true);
 });
