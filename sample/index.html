@@ -14,10 +14,10 @@
         const btn = document.getElementById('btn');
         const data = {
             text: 'SampleButton',
-            handler: () => {
+            onClick: () => {
                 alert('It works!');
             }
         }
-        jsButton.button(btn, data);
+        const buttonObj = new jsButton.Button(btn, data);
     </script>
 </html>

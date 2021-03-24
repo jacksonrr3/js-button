@@ -1,4 +1,4 @@
-const button = require('./button.js').button;
+const Button = require('./button.js').Button;
 window.jsButton = {
-    button
+    Button: Button
 };
