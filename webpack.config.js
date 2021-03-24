@@ -17,7 +17,8 @@ module.exports = {
   },
 
   output: {
-    filename: "button.js"
+    filename: "button.js",
+    name: "my-config"
   },
 
   devServer: {
