@@ -24,3 +24,23 @@ test('Add eventHandler test', () => {
     testNode.dispatchEvent(new Event('click'));
     expect(res).toBe(true);
 });
+
+test('Change text option test', () => {
+    const testNode = document.createElement('div');
+    const text = 'test_text';
+    const testObj = new Button(testNode, {});
+    testObj.option({text: text});
+    expect(testNode.innerText).toBe(text);
+});
+
+test('Change onClick option test', () => {
+    const testNode = document.createElement('div');
+    let res = false;
+    const clickHandler = function() {
+        res = true;
+    };
+    const testObj = new Button(testNode, {});
+    testObj.option({onClick: clickHandler});
+    testNode.dispatchEvent(new Event('click'));
+    expect(res).toBe(true);
+});
