@@ -1,4 +1,4 @@
-const Button = require('../src/button.js').Button;     
+import { Button } from '../src/button';
 
 test('Сhange node text', () => {
     const testNode = document.createElement('div');

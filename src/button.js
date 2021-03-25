@@ -1,4 +1,4 @@
-class Button {
+export class Button {
     constructor(node, options){
         this.node = node;
         this.node.innerText = options.text;
@@ -18,5 +18,3 @@ class Button {
         }
     }
 }
-
-exports.Button = Button;
