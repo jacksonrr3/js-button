@@ -4,6 +4,6 @@ module.exports = {
      mode: "production", 
 
      output: {
-          filename: "button.js"
+          filename: "js-button.js"
      }
 }
