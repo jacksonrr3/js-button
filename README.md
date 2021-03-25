@@ -10,7 +10,7 @@ Using script tags
 ```
 <script src="node_modules/js-button/dist/main.js"></script>
 <script>
-  jsButton.button(node, {
+  const button = new jsButton.Button(node, {
     text: 'some text',
     onClick: () => {})
   });
@@ -19,9 +19,9 @@ Using script tags
 
 Using module 
 ```
-const button = require('js-button/src/button.js').button;
+const Button = require('js-button/src/button.js').Button;
 
-button(node, { 
+const button = new Button(node, { 
     text: 'some text',
     onClick: () => {}
 });
@@ -29,8 +29,8 @@ button(node, {
 
 ## Roadmap
 - runtime option changing
-- floating button (add option "items actions")
 - rename main.js (config webpack)
 - add CI task (github actions task)
+- floating button (add option "items actions")
 - provide CSS
 - migrate ES6 modules

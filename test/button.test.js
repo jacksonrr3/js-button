@@ -1,26 +1,46 @@
-const button = require('../src/button.js').button;
+const Button = require('../src/button.js').Button;     
 
-test('node change text test', () => {
+test('Сhange node text', () => {
     const testNode = document.createElement('div');
     const text = 'test_text';
-    button(testNode, {text: text});
+    const testObj = new Button(testNode, {text: text});
     expect(testNode.innerText).toBe(text);
 });
 
-test('it should add class button', () => {
+test('Add class button', () => {
     const testNode = document.createElement('div');
     const className = 'button';
-    button(testNode, {text: ''});
+    const testObj = new Button(testNode, {text: ''});
     expect(testNode.className).toBe(className);
 });
 
-test('it should add eventHandler', () => {
+test('Add eventHandler', () => {
     const testNode = document.createElement('div');
-    let res;
+    let handlerIsCalled;
     const clickHandler = function() {
-        res = true;
+        handlerIsCalled = true;
     };
-    button(testNode, {text: '', onClick: clickHandler});
+    const testObj = new Button(testNode, {text: '', onClick: clickHandler});
     testNode.dispatchEvent(new Event('click'));
-    expect(res).toBe(true);
+    expect(handlerIsCalled).toBe(true);
+});
+
+test('Change text option', () => {
+    const testNode = document.createElement('div');
+    const text = 'test_text';
+    const testObj = new Button(testNode, {});
+    testObj.option({text: text});
+    expect(testNode.innerText).toBe(text);
+});
+
+test('Change onClick option', () => {
+    const testNode = document.createElement('div');
+    let handlerIsCalled = false;
+    const clickHandler = function() {
+        handlerIsCalled = true;
+    };
+    const testObj = new Button(testNode, {});
+    testObj.option({onClick: clickHandler});
+    testNode.dispatchEvent(new Event('click'));
+    expect(handlerIsCalled).toBe(true);
 });
