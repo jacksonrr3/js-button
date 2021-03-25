@@ -28,9 +28,9 @@ const button = new Button(node, {
 ```
 
 ## Roadmap
-- runtime option changing
-- rename main.js (config webpack)
-- add CI task (github actions task)
+- ~~runtime option changing~~
+- ~~rename main.js (config webpack)~~
+- ~~add CI task (github actions task)~~
 - floating button (add option "items actions")
 - provide CSS
 - migrate ES6 modules
