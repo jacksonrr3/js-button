@@ -11,13 +11,12 @@
     </body>
     <script src="../dist/main.js"></script>
     <script>
-        const btn = document.getElementById('btn');
-        const data = {
+        const buttonElement = document.getElementById('btn');
+        const button = new jsButton.Button(buttonElement, {
             text: 'SampleButton',
             onClick: () => {
-                alert('It works!');
+                button.option({text: 'It is changed by click!'});
             }
-        }
-        const buttonObj = new jsButton.Button(btn, data);
+        });
     </script>
 </html>
