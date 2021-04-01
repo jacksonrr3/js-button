@@ -9,9 +9,8 @@ test('Сhange node text', () => {
 
 test('Add class button', () => {
     const buttonNode = document.createElement('div');
-    const className = 'button';
     const testObj = new Button(buttonNode, {text: ''});
-    expect(buttonNode.className).toBe(className);
+    expect(buttonNode.classList.contains('button')).toBe(true);
 });
 
 test('Add eventHandler', () => {
@@ -49,5 +48,5 @@ test('Add class selector at node', () => {
     const buttonNode = document.createElement('div');
     buttonNode.className = 'element';
     const buttonObject = new Button(buttonNode, {});
-    expect(buttonNode.className).toBe('element button');
+    expect(buttonNode.classList.contains('element')).toBe(true);
 });
