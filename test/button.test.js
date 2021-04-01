@@ -1,30 +1,30 @@
 const Button = require('../src/button.js').Button;     
 
-test('Сhange node text', () => {
+test('Button correctly displays "text" option', () => {
     const buttonNode = document.createElement('div');
     const text = 'test_text';
-    const testObj = new Button(buttonNode, {text: text});
+    new Button(buttonNode, {text: text});
     expect(buttonNode.innerText).toBe(text);
 });
 
-test('Add class button', () => {
+test('Button adds class "button" to an element', () => {
     const buttonNode = document.createElement('div');
-    const testObj = new Button(buttonNode, {text: ''});
+    new Button(buttonNode, {text: ''});
     expect(buttonNode.classList.contains('button')).toBe(true);
 });
 
-test('Add eventHandler', () => {
+test('onClick handler is called after element clicked', () => {
     const buttonNode = document.createElement('div');
     let handlerIsCalled;
     const clickHandler = function() {
         handlerIsCalled = true;
     };
-    const testObj = new Button(buttonNode, {text: '', onClick: clickHandler});
+    new Button(buttonNode, {text: '', onClick: clickHandler});
     buttonNode.dispatchEvent(new Event('click'));
     expect(handlerIsCalled).toBe(true);
 });
 
-test('Change text option', () => {
+test('Button.option method correctly applies new "text" option', () => {
     const buttonNode = document.createElement('div');
     const text = 'test_text';
     const testObj = new Button(buttonNode, {});
@@ -32,9 +32,9 @@ test('Change text option', () => {
     expect(buttonNode.innerText).toBe(text);
 });
 
-test('Change onClick option', () => {
+test('Button.option method correctly changes "onClick" option', () => {
     const buttonNode = document.createElement('div');
-    let handlerIsCalled = false;
+    let handlerIsCalled;
     const clickHandler = function() {
         handlerIsCalled = true;
     };
@@ -44,9 +44,9 @@ test('Change onClick option', () => {
     expect(handlerIsCalled).toBe(true);
 });
 
-test('Add class selector at node', () => {
+test('Button does not delete initial element CSS classes', () => {
     const buttonNode = document.createElement('div');
     buttonNode.className = 'element';
-    const buttonObject = new Button(buttonNode, {});
+    new Button(buttonNode, {});
     expect(buttonNode.classList.contains('element')).toBe(true);
 });
