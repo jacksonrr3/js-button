@@ -1,0 +1,6 @@
+.button > .floating-button {
+     background-color: lightyellow;
+     border: 1px solid darkblue;
+     display: inline-block;
+     cursor: pointer;
+ }
