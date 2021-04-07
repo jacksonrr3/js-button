@@ -1,4 +1,4 @@
-const Button = require('../src/button.js').Button;     
+import { Button } from '../src/button';
 
 test('Button correctly displays "text" option', () => {
     const buttonNode = document.createElement('div');
