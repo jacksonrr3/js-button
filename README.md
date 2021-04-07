@@ -33,4 +33,4 @@ const button = new Button(node, {
 - ~~add CI task (github actions task)~~
 - floating button (add option "items actions")
 - provide CSS
-- migrate ES6 modules
+- ~~migrate ES6 modules~~
