@@ -4,19 +4,41 @@
         <meta charset="utf-8">
         <title>Sample</title>
         <link rel="stylesheet" href="../src/button.css">
+        <link rel="stylesheet" href="../src/floating_button.css">
     </head>
     <body>
+        <h1>Button sample</h1>
         <div id='btn'>
+        </div>
+        <h1>FloatingButton sample</h1>
+        <div id='flBtn'>
         </div>
     </body>
     <script src="../dist/js-button.js"></script>
     <script>
-        const buttonElement = document.getElementById('btn');
-        const button = new jsButton.Button(buttonElement, {
+        const buttonNode = document.getElementById('btn');
+        const button = new jsButton.Button(buttonNode, {
             text: 'SampleButton',
             onClick: () => {
                 button.option({text: 'It is changed by click!'});
             }
         });
+
+        const floatingButtonsOptions = [
+            {
+                text: 'Button1',
+                onClick: () => {
+                    alert('Button1');
+               }
+            },
+            {
+                text: 'Buttton2',
+                onClick: () => {
+                    alert('Button2');
+               }
+            }
+        ];
+        const floatingButtonElement = document.getElementById('flBtn');
+        const floatingButton = new jsButton.FloatingButton(floatingButtonElement, floatingButtonsOptions);
     </script>
 </html>

@@ -1,26 +1,12 @@
-const FloatingButton = require('../src/floating_button.js').FloatingButton;
+import { FloatingButton } from '../src/floating_button';
 
-test('Create floatingButton', () => {
+test('FloatingButton correctly displays "text" option', () => {
      const buttonNode = document.createElement('div');
-     const buttonsOptions = [
-         {
-               text: 'Button1',
-               onClick: () => {
-                    alert('Button1');
-               }
-         },
-         {
-               text: 'Buttton2',
-               onClick: () => {
-                    alert('Button2');
-               }
-         }
-     ];
-     const floatingButton = new FloatingButton(buttonNode, buttonsOptions);
+     new FloatingButton(buttonNode, []);
      expect(buttonNode.innerText).toBe('Floating Button');
 });
 
-test('Call child buttons clickHandlers', () => {
+test('onClick handler is called after "child" button element is clicked', () => {
      const buttonNode = document.createElement('div');
      let isClicked1;
      let isClicked2;
@@ -45,19 +31,12 @@ test('Call child buttons clickHandlers', () => {
           }
      ];
 
-     const floatingButton = new FloatingButton(buttonNode, buttonsOptions);
+     new FloatingButton(buttonNode, buttonsOptions);
      buttonNode.dispatchEvent(new Event('click'));
      
-     const btn1 = buttonNode.querySelectorAll('button');
-     console.log(btn1.length)
+     const btn1 = buttonNode.querySelectorAll('.button')[0];
+     btn1.dispatchEvent(new Event('click'));
 
-     // btn1.dispatchEvent(new Event('click'));
-
-     //console.log(buttonNode)
-
-     // const btn2 = buttonNode.querySelectorAll('.floating-button')[1];
-     // btn2.dispatchEvent(new Event('click'));
-     
      expect(isClicked1).toBe(true);
      expect(isClicked2).toBe(undefined);
 });
