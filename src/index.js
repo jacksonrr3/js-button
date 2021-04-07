@@ -1,4 +1,5 @@
-const Button = require('./button.js').Button;
+import { Button } from './button';
+
 window.jsButton = {
-    Button: Button
+    Button
 };
