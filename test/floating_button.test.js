@@ -2,41 +2,85 @@ import { FloatingButton } from '../src/floating_button';
 
 test('FloatingButton correctly displays "text" option', () => {
      const buttonNode = document.createElement('div');
-     new FloatingButton(buttonNode, []);
+     new FloatingButton(buttonNode, {});
      expect(buttonNode.innerText).toBe('Floating Button');
 });
 
-test('onClick handler is called after "child" button element is clicked', () => {
+test('FloatingButton adds class "floating-button" to an element', () => {
      const buttonNode = document.createElement('div');
+     new FloatingButton(buttonNode, {});
+     expect(buttonNode.classList.contains('floating-button')).toBe(true);
+});
+
+test('Child buttons undefined before FloatingButton is clicked', () => {
+     const buttonNode = document.createElement('div');
+     
+     const buttonsOptions = {
+          items: [
+               { text: 'Button1' }
+          ]
+     };
+
+     new FloatingButton(buttonNode, buttonsOptions);
+     const button1 = buttonNode.querySelectorAll('.button')[0];
+
+     expect(button1).toBe(undefined);
+});
+
+test('Child button element is clickable after floatingbutton element is clicked', () => {
+     const buttonNode = document.createElement('div');
+     
      let isClicked1;
-     let isClicked2;
 
      const clickHandler1 = function() {
-          console.log('clickHandler1')
           isClicked1 = true;
      };
-     const clickHandler2 = function() {
-          console.log('clickHandler2')
-          isClicked2 = true;
+
+     const buttonsOptions = {
+          items: [
+               {
+                    text: 'Button1',
+                    onClick: clickHandler1,
+               }
+          ]
      };
 
-     const buttonsOptions = [
-          {
-               text: 'Button1',
-               onClick: clickHandler1,
-          }, 
-          {
-               text: 'Buttton2',
-               onClick: clickHandler2
-          }
-     ];
+     new FloatingButton(buttonNode, buttonsOptions);
+     
+     buttonNode.dispatchEvent(new Event('click'));
+     
+     const button1 = buttonNode.querySelectorAll('.button')[0];
+     button1.dispatchEvent(new Event('click'));
+
+     expect(isClicked1).toBe(true);
+});
+
+test('Child buttons become unavailable after "onclick" event on one of the child buttons', () => {
+     const buttonNode = document.createElement('div');
+     
+     let isClicked1;
+
+     const clickHandler1 = function() {
+          isClicked1 = true;
+     };
+
+     const buttonsOptions = {
+          items: [
+               {
+                    text: 'Button1',
+                    onClick: clickHandler1,
+               }
+          ]
+     };
 
      new FloatingButton(buttonNode, buttonsOptions);
      buttonNode.dispatchEvent(new Event('click'));
-     
-     const btn1 = buttonNode.querySelectorAll('.button')[0];
-     btn1.dispatchEvent(new Event('click'));
 
-     expect(isClicked1).toBe(true);
-     expect(isClicked2).toBe(undefined);
+     let button1 = buttonNode.querySelectorAll('.button')[0];
+     button1.dispatchEvent(new Event('click'));
+
+     buttonNode.dispatchEvent(new Event('click'));
+     button1 = buttonNode.querySelectorAll('.button')[0];
+     
+     expect(button1).toBe(undefined);
 });

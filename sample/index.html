@@ -8,11 +8,9 @@
     </head>
     <body>
         <h1>Button sample</h1>
-        <div id='btn'>
-        </div>
+        <div id='btn'></div>
         <h1>FloatingButton sample</h1>
-        <div id='flBtn'>
-        </div>
+        <div id='flBtn'></div>
     </body>
     <script src="../dist/js-button.js"></script>
     <script>
@@ -24,20 +22,22 @@
             }
         });
 
-        const floatingButtonsOptions = [
-            {
-                text: 'Button1',
-                onClick: () => {
-                    alert('Button1');
-               }
-            },
-            {
-                text: 'Buttton2',
-                onClick: () => {
-                    alert('Button2');
-               }
-            }
-        ];
+        const floatingButtonsOptions = {
+            items: [
+                {
+                    text: 'Button1',
+                    onClick: () => {
+                        alert('Button1');
+                }
+                },
+                {
+                    text: 'Buttton2',
+                    onClick: () => {
+                        alert('Button2');
+                }
+                }
+            ]
+        };
         const floatingButtonElement = document.getElementById('flBtn');
         const floatingButton = new jsButton.FloatingButton(floatingButtonElement, floatingButtonsOptions);
     </script>

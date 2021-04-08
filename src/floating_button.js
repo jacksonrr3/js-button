@@ -2,36 +2,41 @@ import { Button } from './button';
 
 export class FloatingButton extends Button {
 
-    constructor(node, buttonsOptions) {
-        super(node, {text: 'Floating Button'});
-        
-        const buttons = [];
-        let notClicked = true;
+    constructor(node, options) {
+        super(node, { text: 'Floating Button' });
+                
         node.classList.add('floating-button');
         
-        for (const options of buttonsOptions){
-            const btnNode = document.createElement('div');
-            buttons.push(new Button(btnNode, options));
-        }
-        
+        this.option(options);
+
+        let isClicked = false;
         function onClickHandler() {
-            if (notClicked){
-                for (const btn of buttons) {
+            if (!isClicked){
+                for (const btn of this.buttons) {
                     this.node.append(btn.node);
                 }
-                notClicked = false;
+                isClicked = true;
             } else {
-                for (const btn of buttons) {
+                for (const btn of this.buttons) {
                     btn.node.remove(); 
                 }
-                notClicked = true;
+                isClicked = false;
             }
         }
 
-        this.option({
+        super.option({
             onClick: onClickHandler.bind(this)
         });
     }
 
-    // option(object){}    to do
+    option(options){
+        super.option(options);
+        if (options.hasOwnProperty('items')) {
+            this.buttons = [];
+            for (const btnOptions of options.items) {
+                const btnNode = document.createElement('div');
+                this.buttons.push(new Button(btnNode, btnOptions));
+            }
+        }
+    }
 }
